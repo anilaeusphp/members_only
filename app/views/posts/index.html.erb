@@ -14,7 +14,7 @@
     <div>
       <h4>Body: <%= post.body %></h4>
     </div>
-    <div>Created By: <strong><%= post.user.username %></strong> on <small style="font-style: italic"><%= time_ago_in_words(post.created_at) %> ago</small></div>
+    <div>Created By: <strong><%= user_signed_in? ? post.user.username : "You have to login to see the author" %></strong> on <small style="font-style: italic"><%= time_ago_in_words(post.created_at) %> ago</small></div>
   <% end %>
 <% else %>
   <p>Currently there is no post</p>
