@@ -1,0 +1,21 @@
+<h1>All Posts Page</h1>
+
+<br />
+
+<%= link_to "Create Post", new_post_path %>
+
+<br />
+
+<% if @posts.size > 0 %>
+  <% @posts.each do |post| %>
+    <div>
+      <h4>Title: <%= post.title %></h4>
+    </div>
+    <div>
+      <h4>Body: <%= post.body %></h4>
+    </div>
+    <div>Created By: <strong><%= post.user.username %></strong> on <small style="font-style: italic"><%= time_ago_in_words(post.created_at) %> ago</small></div>
+  <% end %>
+<% else %>
+  <p>Currently there is no post</p>
+<% end %>
